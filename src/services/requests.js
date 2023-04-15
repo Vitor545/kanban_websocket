@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-	baseURL: 'https://localhost:7208',
+	baseURL: 'https://kanbanwebsocketback-production.up.railway.app',
 });
 
 api.interceptors.request.use(async config => {
