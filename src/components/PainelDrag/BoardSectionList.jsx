@@ -81,8 +81,7 @@ function BoardSectionList() {
 
 	const requestLead = async () => {
 		try {
-			const {id} = jwt_decode(localStorage.getItem('token'));
-			const {boards} = await requestGetRoute(`kanban/userId/${id}`);
+			const {boards} = await requestGetRoute('kanban');
 			setAllBoards(boards);
 			if (boards) {
 				setBoardList(boards);
@@ -106,7 +105,7 @@ function BoardSectionList() {
 		}
 
 		const connection = new HubConnectionBuilder()
-			.withUrl('https://localhost:7208/hubs/kanban')
+			.withUrl('https://kanbanwebsocketback-production.up.railway.app/hubs/kanban')
 			.withAutomaticReconnect()
 			.build();
 
